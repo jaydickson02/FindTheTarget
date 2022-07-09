@@ -1,5 +1,5 @@
 class DNA {
-    constructor(x, y, maxMoves = 500, mutatutionRate = 0.1, velocity = 5) {
+    constructor(x, y, maxMoves = 500, mutatutionRate = 0.3, velocity = 5) {
         this.x = x;
         this.y = y;
         this.maxMoves = maxMoves;
@@ -66,9 +66,8 @@ class DNA {
     fitness(target) {
 
         let distanceToTarget = dist(this.x, this.y, target.x, target.y);
-        let exponential = distanceToTarget ** 2;
 
-        let fitness = 10000000 / exponential
+        let fitness = 10000000 / distanceToTarget;
         return fitness;
     }
 

@@ -68,9 +68,11 @@ function findBestParents() {
     SortbyFitness(); //Sorts the population by fitness
     let numberOfSelectedParents = Math.floor(population.length * percentageOfFitParents)
     for (let i = 0; i < numberOfSelectedParents; i++) {
-        parents.push(population[i]);
+        for (let j = 0; j < (numberOfSelectedParents - i + 1) ** 2; j++) {
+            parents.push(population[i]);
+        }
+        return parents;
     }
-    return parents;
 }
 
 function draw() {
@@ -80,6 +82,7 @@ function draw() {
     if (checkMoves() == true) {
         populationCounter++;
         let parents = findBestParents();
+        console.log(parents);
         population = []; //reset population
 
         bestFitness = parents[0].fitness(goal);
