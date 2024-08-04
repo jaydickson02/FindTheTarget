@@ -1,18 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="obstacle.js"></script>
     <script src="DNA.js"></script>
     <script src="sketch.js"></script>
-
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .info-panel {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        .info-panel h2 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .info-panel p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
     <title>GA Solver</title>
 </head>
-
+<body>
+    <div class="info-panel">
+        <h2>Hunting Dots</h2>
+        <p id="generation">Generation: 0</p>
+        <p id="best-fitness">Best Fitness: 0</p>
+        <p id="average-fitness">Average Fitness: 0</p>
+        <p id="mutation-rate">Mutation Rate: 0</p>
+        <canvas id="fitness-chart" width="300" height="150"></canvas>
+    </div>
 </body>
-
 </html>
